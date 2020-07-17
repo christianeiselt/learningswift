@@ -18,10 +18,10 @@ protocol WeatherManagerDelegate
 struct WeatherManager
 {
     var delegate: WeatherManagerDelegate?
+    let secrets = Secrets()
 
     func getWeatherURL() -> String
     {
-        let secrets = Secrets()
         let token = secrets.getToken(for: "openWeatherMap")
         let weatherURL = "https://api.openweathermap.org/data/2.5/weather?units=metric&appid=\(token)"
 
